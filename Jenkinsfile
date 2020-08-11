@@ -18,7 +18,7 @@ pipeline {
         stage("Build"){
             steps {
                 sh 'npm install'
-		sh 'source ~/.bashprofile'
+		sh 'npm install --save-dev jasmine'
             }
         }
         stage("Test"){
