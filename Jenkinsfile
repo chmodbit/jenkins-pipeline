@@ -18,6 +18,7 @@ pipeline {
         stage("Build"){
             steps {
                 sh 'npm install'
+		sh 'jasmine init'
             }
         }
         stage("Test"){
