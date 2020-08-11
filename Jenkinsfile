@@ -1,7 +1,6 @@
 pipeline {
     environment {
         registry = "ardityopm/jenkins-docker-test"
-        DOCKER_PWD = credentials('docker-login-pwd')
         registryCredential = 'dockerhub'
     }
     agent {
