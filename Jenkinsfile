@@ -2,6 +2,7 @@ pipeline {
     environment {
         registry = "ardityopm/jenkins-docker-test"
         registryCredential = 'dockerhub'
+	dockerImage = ''
     }
     agent {
         docker {
@@ -27,10 +28,10 @@ pipeline {
         }
         stage("Build & Push Docker image") {
             steps {
-                sh 'docker build $registry:$BUILD_NUMBER'
-                   script {
+                script {
+			dockerImage = docker.build registry + ":$BUILD_NUMBER"
                  	docker.withRegistry( '', registryCredential ) {
-				dockerImage.push()
+			dockerImage.push()
                    }  
                 sh "docker image rm $registry:$BUILD_NUMBER"
             }
