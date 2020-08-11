@@ -1,11 +1,11 @@
 pipeline {
     environment {
-        registry = "chmodbit/jenkins-docker-test"
+        registry = "ardityopm/jenkins-docker-test"
         DOCKER_PWD = credentials('docker-login-pwd')
     }
     agent {
         docker {
-            image 'chmodbit/node-docker'
+            image 'ardityopm/node-docker'
             args '-p 3000:3000'
             args '-w /app'
             args '-v /var/run/docker.sock:/var/run/docker.sock'
