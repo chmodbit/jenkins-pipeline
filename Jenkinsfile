@@ -18,7 +18,7 @@ pipeline {
         stage("Build"){
             steps {
                 sh 'npm install'
-		sh 'npm install --save-dev jasmine'
+		sh 'npm install jasmine -g'
             }
         }
         stage("Test"){
