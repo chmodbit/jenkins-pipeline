@@ -5,7 +5,7 @@ pipeline {
     }
     agent {
         docker {
-            image 'ardityopm/nodejs-docker'
+            image 'ardityopm/nodejs-docker:2'
             args '-p 3000:3000'
             args '-w /app'
             args '-v /var/run/docker.sock:/var/run/docker.sock'
@@ -15,10 +15,6 @@ pipeline {
         skipStagesAfterUnstable()
     }
     stages {
-        stage('Initialize'){
-            def dockerHome = tool 'myDocker'
-            env.PATH = "${dockerHome}/bin:${env.PATH}"
-        }
         stage("Build"){
             steps {
                 sh 'npm install'
