@@ -32,4 +32,4 @@ echo "Smoke tests..."
 docker container run --name tester \
     --rm \
     --net test-net \
-    ardityopm/node-docker sh -c "curl api:3000"
+    ardityopm/node-docker:2 sh -c "curl api:3000"
